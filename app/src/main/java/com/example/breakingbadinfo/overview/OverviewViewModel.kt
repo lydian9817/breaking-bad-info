@@ -20,8 +20,12 @@ class OverviewViewModel : ViewModel() {
 
     private fun getCharacters() {
         viewModelScope.launch {
-            val listResult = BreakingBadApi.retrofitService.getCharacters()
-            _status.value = listResult
+            try {
+                val listResult = BreakingBadApi.retrofitService.getCharacters()
+                _status.value = listResult
+            } catch (e: Exception) {
+                _status.value = "Failure: ${e.message}"
+            }
         }
     }
 }
