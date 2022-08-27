@@ -5,14 +5,20 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.breakingbadinfo.network.BreakingBadApi
+import com.example.breakingbadinfo.network.Character
 import kotlinx.coroutines.launch
 
 class OverviewViewModel : ViewModel() {
 
     //_status holds request results
     private val _status = MutableLiveData<String>()
-    //backing property
+    //backing
     val status: LiveData<String> = _status
+
+    //name property
+    private val _names = MutableLiveData<Character>()
+    //backing
+    val names: LiveData<Character> = _names
 
     init {
         getCharacters()
@@ -21,8 +27,8 @@ class OverviewViewModel : ViewModel() {
     private fun getCharacters() {
         viewModelScope.launch {
             try {
-                val listResult = BreakingBadApi.retrofitService.getCharacters()
-                _status.value = listResult[0].name
+                _names.value = BreakingBadApi.retrofitService.getCharacters()[0]
+                _status.value = "nombre ${_names.value!!.name}"
             } catch (e: Exception) {
                 _status.value = "Failure: ${e.message}"
             }
