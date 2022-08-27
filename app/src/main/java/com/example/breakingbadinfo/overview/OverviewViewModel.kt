@@ -16,9 +16,9 @@ class OverviewViewModel : ViewModel() {
     val status: LiveData<String> = _status
 
     //name property
-    private val _names = MutableLiveData<Character>()
+    private val _characterNames = MutableLiveData<Character>()
     //backing
-    val names: LiveData<Character> = _names
+    val characterNames: LiveData<Character> = _characterNames
 
     init {
         getCharacters()
@@ -27,8 +27,8 @@ class OverviewViewModel : ViewModel() {
     private fun getCharacters() {
         viewModelScope.launch {
             try {
-                _names.value = BreakingBadApi.retrofitService.getCharacters()[0]
-                _status.value = "nombre ${_names.value!!.name}"
+                _characterNames.value = BreakingBadApi.retrofitService.getCharacters()[0]
+                _status.value = "nombre ${_characterNames.value!!.name}"
             } catch (e: Exception) {
                 _status.value = "Failure: ${e.message}"
             }
