@@ -19,7 +19,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layoutManager=
-                "androidx.recyclerview.widget.LinearLayoutManager"/>
+                "androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="16"
+            tools:listitem="@layout/character_name_item"/>
 
 
     </FrameLayout>
