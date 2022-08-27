@@ -22,7 +22,7 @@ class OverviewViewModel : ViewModel() {
         viewModelScope.launch {
             try {
                 val listResult = BreakingBadApi.retrofitService.getCharacters()
-                _status.value = listResult
+                _status.value = "Success: ${listResult.size} characters retrieved"
             } catch (e: Exception) {
                 _status.value = "Failure: ${e.message}"
             }

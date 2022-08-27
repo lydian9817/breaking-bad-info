@@ -23,7 +23,7 @@ private val retrofit = Retrofit.Builder()
 /**Define the interface and how retrofit interacts with the server (GET)*/
 interface BreakingBadApiService {
     @GET("characters")
-    suspend fun getCharacters(): String
+    suspend fun getCharacters(): List<Character> //get the list of Character objects
 }
 
 /**Initialize the retrofit sevice (singleton)*/

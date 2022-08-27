@@ -2,7 +2,7 @@ package com.example.breakingbadinfo.network
 
 import com.squareup.moshi.Json
 
-data class CharacterInfo(
+data class Character(
     @Json(name = "char_id") val id: Int,
     val name: String,
     val birthday: String,
