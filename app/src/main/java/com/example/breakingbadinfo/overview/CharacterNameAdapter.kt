@@ -22,13 +22,13 @@ class CharacterNameAdapter : ListAdapter<Character,
             }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterNameAdapter.CharacterNameViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterNameViewHolder {
         return CharacterNameViewHolder(CharacterNameItemBinding.inflate(
             LayoutInflater.from(parent.context)
         ))
     }
 
-    override fun onBindViewHolder(holder: CharacterNameAdapter.CharacterNameViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: CharacterNameViewHolder, position: Int) {
         val characterName = getItem(position)
         holder.bind(characterName)
     }
