@@ -9,13 +9,19 @@
             name="character"
             type="com.example.breakingbadinfo.network.Character" />
     </data>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/name_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp">
-
+        android:layout_margin="8dp"
+        app:cardElevation="4dp"
+        app:cardCornerRadius="4dp">
 
             <TextView
                 android:id="@+id/character_name_txt"
@@ -29,5 +35,7 @@
                 tools:text="character name"/>
 
     </com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>
 
 </layout>
