@@ -8,17 +8,19 @@ import com.example.breakingbadinfo.network.BreakingBadApi
 import com.example.breakingbadinfo.network.Character
 import kotlinx.coroutines.launch
 
+enum class BreakingBadApiStatus { LOADING, ERROR, DONE }
+
 class OverviewViewModel : ViewModel() {
 
     //_status holds request results
-    private val _status = MutableLiveData<String>()
+    private val _status = MutableLiveData<BreakingBadApiStatus>()
     //backing
-    val status: LiveData<String> = _status
+    val status: LiveData<BreakingBadApiStatus> = _status
 
     //name property
-    private val _characterNames = MutableLiveData<List<Character>>()
+    private val _characters = MutableLiveData<List<Character>>()
     //backing
-    val characterNames: LiveData<List<Character>> = _characterNames
+    val characters: LiveData<List<Character>> = _characters
 
     init {
         getCharacters()
@@ -26,11 +28,13 @@ class OverviewViewModel : ViewModel() {
 
     private fun getCharacters() {
         viewModelScope.launch {
+            _status.value = BreakingBadApiStatus.LOADING
             try {
-                _characterNames.value = BreakingBadApi.retrofitService.getCharacters()
-                //_status.value = "nombre ${_characterNames.value!!.name}"
+                _characters.value = BreakingBadApi.retrofitService.getCharacters()
+                _status.value = BreakingBadApiStatus.DONE
             } catch (e: Exception) {
-                _status.value = "Failure: ${e.message}"
+                _status.value = BreakingBadApiStatus.ERROR
+                _characters.value = listOf()
             }
         }
     }
