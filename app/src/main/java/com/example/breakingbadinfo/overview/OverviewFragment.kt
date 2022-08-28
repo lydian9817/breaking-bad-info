@@ -25,6 +25,9 @@ class OverviewFragment : Fragment(){
         //gives binding acces to the viewModel
         binding.viewModel = viewModel
 
+        //initialize the adapter
+        binding.characterNameRv.adapter = CharacterNameAdapter()
+
         return binding.root
     }
 }
