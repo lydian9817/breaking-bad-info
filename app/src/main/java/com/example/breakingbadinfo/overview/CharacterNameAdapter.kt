@@ -15,10 +15,8 @@ class CharacterNameAdapter : ListAdapter<Character,
     class CharacterNameViewHolder(private var binding: CharacterNameItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
             fun bind(character: Character) {
-                binding.apply {
-                    characterNameTxt.text = character.name
-                    executePendingBindings()
-                }
+                binding.character = character
+                binding.executePendingBindings()
             }
     }
 
