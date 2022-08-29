@@ -34,7 +34,7 @@ class OverviewViewModel : ViewModel() {
                 _status.value = BreakingBadApiStatus.DONE
             } catch (e: Exception) {
                 _status.value = BreakingBadApiStatus.ERROR
-                _characters.value = listOf()
+                _characters.value = listOf() //cleans the recycler view
             }
         }
     }
