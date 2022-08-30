@@ -1,4 +1,4 @@
-package com.example.breakingbadinfo.overview
+package com.example.breakingbadinfo.ui.characters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -9,10 +9,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.breakingbadinfo.databinding.CharacterNameItemBinding
 
 
-class CharacterNameAdapter : ListAdapter<Character,
-        CharacterNameAdapter.CharacterNameViewHolder>(DiffCallback){
+class CharacterListAdapter : ListAdapter<Character,
+        CharacterListAdapter.CharacterListViewHolder>(DiffCallback){
 
-    class CharacterNameViewHolder(private var binding: CharacterNameItemBinding) :
+    class CharacterListViewHolder(private var binding: CharacterNameItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
             fun bind(character: Character) {
                 binding.character = character
@@ -20,13 +20,13 @@ class CharacterNameAdapter : ListAdapter<Character,
             }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterNameViewHolder {
-        return CharacterNameViewHolder(CharacterNameItemBinding.inflate(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterListViewHolder {
+        return CharacterListViewHolder(CharacterNameItemBinding.inflate(
             LayoutInflater.from(parent.context)
         ))
     }
 
-    override fun onBindViewHolder(holder: CharacterNameViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: CharacterListViewHolder, position: Int) {
         val characterName = getItem(position)
         holder.bind(characterName)
     }

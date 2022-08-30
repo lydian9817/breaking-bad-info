@@ -6,8 +6,8 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.breakingbadinfo.overview.OverviewViewModel" />
-        
+            type="com.example.breakingbadinfo.ui.characters.CharacterViewModel" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -1,15 +1,15 @@
-package com.example.breakingbadinfo.overview
+package com.example.breakingbadinfo.ui.characters
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.breakingbadinfo.databinding.FragmentOverviewBinding
+import com.example.breakingbadinfo.databinding.FragmentCharacterListBinding
 import androidx.fragment.app.viewModels
 
-class OverviewFragment : Fragment(){
-    private val viewModel: OverviewViewModel by viewModels()
+class CharacterListFragment : Fragment(){
+    private val viewModel: CharacterViewModel by viewModels()
 
     /** Inflates the layout using data binding*/
     override fun onCreateView(
@@ -17,16 +17,16 @@ class OverviewFragment : Fragment(){
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding = FragmentOverviewBinding.inflate(inflater)
+        val binding = FragmentCharacterListBinding.inflate(inflater)
 
         //allows Data Binding to observe LiveData
         binding.lifecycleOwner = this
 
-        //gives binding acces to the viewModel
+        //gives binding access to the viewModel
         binding.viewModel = viewModel
 
         //initialize the adapter
-        binding.characterNameRv.adapter = CharacterNameAdapter()
+        binding.characterNameRv.adapter = CharacterListAdapter()
 
         return binding.root
     }

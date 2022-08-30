@@ -5,14 +5,14 @@ import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.breakingbadinfo.network.Character
-import com.example.breakingbadinfo.overview.BreakingBadApiStatus
-import com.example.breakingbadinfo.overview.CharacterNameAdapter
+import com.example.breakingbadinfo.ui.characters.BreakingBadApiStatus
+import com.example.breakingbadinfo.ui.characters.CharacterListAdapter
 
 //bindingadapter for the RecyclerView
 @BindingAdapter("listData")
 fun bindRecyclerView(recyclerView: RecyclerView,
                      data: List<Character>?) {
-    val adapter = recyclerView.adapter as CharacterNameAdapter
+    val adapter = recyclerView.adapter as CharacterListAdapter
     adapter.submitList(data)
 }
 

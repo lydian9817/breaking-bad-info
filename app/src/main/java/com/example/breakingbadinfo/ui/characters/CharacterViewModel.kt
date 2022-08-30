@@ -1,4 +1,4 @@
-package com.example.breakingbadinfo.overview
+package com.example.breakingbadinfo.ui.characters
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -10,7 +10,7 @@ import kotlinx.coroutines.launch
 
 enum class BreakingBadApiStatus { LOADING, ERROR, DONE }
 
-class OverviewViewModel : ViewModel() {
+class CharacterViewModel : ViewModel() {
 
     //_status holds request results
     private val _status = MutableLiveData<BreakingBadApiStatus>()
