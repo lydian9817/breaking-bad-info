@@ -17,5 +17,11 @@
         android:id="@+id/characterDetailFragment"
         android:name="com.example.breakingbadinfo.ui.characters.CharacterDetailFragment"
         android:label="fragment_character_detail"
-        tools:layout="@layout/fragment_character_detail" />
+        tools:layout="@layout/fragment_character_detail" >
+        <action
+            android:id="@+id/action_characterDetailFragment_to_characterListFragment"
+            app:destination="@id/characterListFragment"
+            app:popUpTo="@id/characterListFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

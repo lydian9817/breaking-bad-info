@@ -8,6 +8,11 @@
         <variable
             name="character"
             type="com.example.breakingbadinfo.network.Character" />
+
+        <variable
+            name="characterListFragment"
+            type="com.example.breakingbadinfo.ui.characters.CharacterListFragment" />
+
     </data>
 <LinearLayout
     android:layout_width="match_parent"
@@ -21,7 +26,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         app:cardElevation="4dp"
-        app:cardCornerRadius="4dp">
+        app:cardCornerRadius="4dp"
+        android:onClick="@{() -> characterListFragment.goToNextScreen()}">
 
             <TextView
                 android:id="@+id/character_name_list_txt"

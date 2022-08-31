@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.breakingbadinfo.databinding.FragmentCharacterListBinding
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import com.example.breakingbadinfo.R
 
 class CharacterListFragment : Fragment(){
     private val viewModel: CharacterViewModel by viewModels()
@@ -29,5 +31,10 @@ class CharacterListFragment : Fragment(){
         binding.characterNameRv.adapter = CharacterListAdapter()
 
         return binding.root
+    }
+
+    /**Goes to detail fragment*/
+    fun goToNextScreen() {
+        findNavController().navigate(R.id.action_characterListFragment_to_characterDetailFragment)
     }
 }
