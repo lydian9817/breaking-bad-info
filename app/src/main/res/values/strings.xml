@@ -1,5 +1,11 @@
 <resources>
     <string name="app_name">Breaking Bad Info</string>
 
+    <string name="img_description">Character image</string>
     <string name="birthday">Birthday: </string>
+    <string name="occupation">Occupation: </string>
+    <string name="status">Status: </string>
+    <string name="nickname">Nickname: </string>
+    <string name="appearance">Season appearance: </string>
+    <string name="portrayed">Portrayed by : </string>
 </resources>
