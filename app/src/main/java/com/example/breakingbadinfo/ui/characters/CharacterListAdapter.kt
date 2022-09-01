@@ -9,26 +9,16 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.breakingbadinfo.databinding.CharacterNameItemBinding
 
 
-class CharacterListAdapter : ListAdapter<Character,
+class CharacterListAdapter(val clickListener: CharacterListener) : ListAdapter<Character,
         CharacterListAdapter.CharacterListViewHolder>(DiffCallback){
 
     class CharacterListViewHolder(private var binding: CharacterNameItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
-            fun bind(character: Character) {
+            fun bind(clickListener: CharacterListener, character: Character) {
                 binding.character = character
+                binding.clickListener = clickListener
                 binding.executePendingBindings()
             }
-    }
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterListViewHolder {
-        return CharacterListViewHolder(CharacterNameItemBinding.inflate(
-            LayoutInflater.from(parent.context)
-        ))
-    }
-
-    override fun onBindViewHolder(holder: CharacterListViewHolder, position: Int) {
-        val characterName = getItem(position)
-        holder.bind(characterName)
     }
 
     //checks repeated characters
@@ -42,4 +32,18 @@ class CharacterListAdapter : ListAdapter<Character,
         }
     }
 
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterListViewHolder {
+        return CharacterListViewHolder(CharacterNameItemBinding.inflate(
+            LayoutInflater.from(parent.context)
+        ))
+    }
+
+    override fun onBindViewHolder(holder: CharacterListViewHolder, position: Int) {
+        val characterName = getItem(position)
+        holder.bind(clickListener, characterName)
+    }
+}
+
+class CharacterListener(val clickListener: (character: Character) -> Unit) {
+    fun onClick(character: Character) = clickListener(character)
 }

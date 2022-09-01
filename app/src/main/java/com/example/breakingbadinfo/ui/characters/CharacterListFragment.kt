@@ -5,13 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import com.example.breakingbadinfo.databinding.FragmentCharacterListBinding
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.breakingbadinfo.R
 
 class CharacterListFragment : Fragment(){
-    private val viewModel: CharacterViewModel by viewModels()
+    private val viewModel: CharacterViewModel by activityViewModels()
 
     /** Inflates the layout using data binding*/
     override fun onCreateView(
@@ -28,7 +29,10 @@ class CharacterListFragment : Fragment(){
         binding.viewModel = viewModel
 
         //initialize the adapter
-        binding.characterNameRv.adapter = CharacterListAdapter()
+        binding.characterNameRv.adapter = CharacterListAdapter(CharacterListener { character ->
+            viewModel.onCharacterClicked(character)
+            goToNextScreen()
+        })
 
         return binding.root
     }

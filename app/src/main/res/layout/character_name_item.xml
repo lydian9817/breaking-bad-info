@@ -10,8 +10,8 @@
             type="com.example.breakingbadinfo.network.Character" />
 
         <variable
-            name="characterListFragment"
-            type="com.example.breakingbadinfo.ui.characters.CharacterListFragment" />
+            name="clickListener"
+            type="com.example.breakingbadinfo.ui.characters.CharacterListener" />
 
     </data>
 <LinearLayout
@@ -27,7 +27,7 @@
         android:layout_margin="8dp"
         app:cardElevation="4dp"
         app:cardCornerRadius="4dp"
-        android:onClick="@{() -> characterListFragment.goToNextScreen()}">
+        android:onClick="@{() -> clickListener.onClick(character)}">
 
             <TextView
                 android:id="@+id/character_name_list_txt"

@@ -17,15 +17,21 @@ class CharacterViewModel : ViewModel() {
     //backing
     val status: LiveData<BreakingBadApiStatus> = _status
 
-    //name property
+    //character object property
     private val _characters = MutableLiveData<List<Character>>()
     //backing
     val characters: LiveData<List<Character>> = _characters
+
+    //single clicked character
+    private val _character = MutableLiveData<Character>()
+    //backing
+    val character: LiveData<Character> = _character
 
     init {
         getCharacters()
     }
 
+    //get characters list
     private fun getCharacters() {
         viewModelScope.launch {
             _status.value = BreakingBadApiStatus.LOADING
@@ -37,5 +43,10 @@ class CharacterViewModel : ViewModel() {
                 _characters.value = listOf() //cleans the recycler view
             }
         }
+    }
+
+    //set binding for the clicked Character object
+    fun onCharacterClicked(character: Character) {
+        _character.value = character
     }
 }

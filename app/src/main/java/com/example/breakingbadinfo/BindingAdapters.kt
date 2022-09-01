@@ -2,8 +2,10 @@ package com.example.breakingbadinfo
 
 import android.view.View
 import android.widget.ImageView
+import androidx.core.net.toUri
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.example.breakingbadinfo.network.Character
 import com.example.breakingbadinfo.ui.characters.BreakingBadApiStatus
 import com.example.breakingbadinfo.ui.characters.CharacterListAdapter
@@ -31,6 +33,17 @@ fun bindStatus(statusImageView: ImageView,
         }
         else -> {
             statusImageView.visibility = View.GONE
+        }
+    }
+}
+
+@BindingAdapter("imageUrl")
+fun bindImage(imgView: ImageView, imgUrl: String?) {
+    imgUrl?.let {
+        val imgUri = imgUrl.toUri().buildUpon().scheme("https").build()
+        imgView.load(imgUri) {                         //load() es de coil library
+            placeholder(R.drawable.ic_baseline_cloud_queue_24) //muestra imagen de loading mientras carga la foto
+            error(R.drawable.ic_baseline_cloud_off_24)         //muestra imagen de error si hay un error
         }
     }
 }
