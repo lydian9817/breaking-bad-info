@@ -3,9 +3,9 @@
 
     <string name="img_description">Character image</string>
     <string name="birthday">Birthday: %s </string>
-    <string name="occupation">Occupation: </string>
+    <string name="occupation">Occupation: %s</string>
     <string name="status">Status: %s </string>
     <string name="nickname">Nickname: %s </string>
-    <string name="appearance">Season appearance: </string>
+    <string name="appearance">Season appearance: %s</string>
     <string name="portrayed">Portrayed by: %s </string>
 </resources>
