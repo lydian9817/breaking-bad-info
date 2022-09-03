@@ -37,6 +37,7 @@ fun bindStatus(statusImageView: ImageView,
     }
 }
 
+//binding adpter for imgUrl
 @BindingAdapter("imageUrl")
 fun bindImage(imgView: ImageView, imgUrl: String?) {
     imgUrl?.let {
