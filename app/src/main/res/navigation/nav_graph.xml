@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph.xml"
-    app:startDestination="@id/characterListFragment">
+    app:startDestination="@id/homeFragment">
 
     <fragment
         android:id="@+id/characterListFragment"
@@ -17,11 +17,14 @@
         android:id="@+id/characterDetailFragment"
         android:name="com.example.breakingbadinfo.ui.characters.CharacterDetailFragment"
         android:label="fragment_character_detail"
-        tools:layout="@layout/fragment_character_detail" >
+        tools:layout="@layout/fragment_character_detail" />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.breakingbadinfo.ui.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_characterDetailFragment_to_characterListFragment"
-            app:destination="@id/characterListFragment"
-            app:popUpTo="@id/characterListFragment"
-            app:popUpToInclusive="true" />
+            android:id="@+id/action_homeFragment_to_characterListFragment"
+            app:destination="@id/characterListFragment" />
     </fragment>
 </navigation>
