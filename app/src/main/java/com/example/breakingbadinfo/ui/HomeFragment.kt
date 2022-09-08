@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.breakingbadinfo.R
+import com.example.breakingbadinfo.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
 
@@ -15,7 +16,12 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        val binding = FragmentHomeBinding.inflate(inflater)
+
+        binding.characterButton.setOnClickListener { goToCharacterScreen() }
+
+        return binding.root
+
     }
 
     fun goToCharacterScreen() {
