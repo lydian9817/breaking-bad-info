@@ -26,7 +26,7 @@ interface BreakingBadApiService {
     suspend fun getCharacters(): List<Character> //get the list of Character objects
 }
 
-/**Initialize the retrofit sevice (singleton)*/
+/**Initialize the retrofit service (singleton)*/
 object BreakingBadApi {
     val retrofitService : BreakingBadApiService by lazy {
         retrofit.create(BreakingBadApiService::class.java)
